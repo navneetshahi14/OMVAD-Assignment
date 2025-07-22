@@ -1,36 +1,103 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+````markdown
+# 🔖 Bookmark Saver App
 
-## Getting Started
+A full-stack web app built using **Next.js App Router**, **Tailwind CSS v4**, **MongoDB**, **JWT Auth**, and **Jina AI** to save, summarize, and manage bookmarks.
 
-First, run the development server:
+---
+
+## 🚀 Features
+
+- 🔐 User Authentication with JWT (Firebase + custom backend)
+- 🌐 Save any URL → Auto fetch title, favicon, OpenGraph image
+- ✍️ Auto-summarize articles using [Jina AI](https://jina.ai/)
+- 📂 View all saved bookmarks (persisted in MongoDB)
+- 🗑️ Delete individual bookmarks
+- 📦 Fully Responsive UI with ShadCN UI
+
+---
+
+## 🧰 Tech Stack
+
+| Tech              | Used For              |
+|------------------|-----------------------|
+| Next.js 15 (App Router) | Frontend & API Routes |
+| Tailwind CSS v4  | Styling (dark mode + responsiveness) |
+| MongoDB + Mongoose | Database              |
+| Firebase         | JWT Token (client-side) |
+| Axios            | API requests           |
+| cheerio + axios  | Web scraping metadata  |
+| Jina AI          | Article summarization  |
+| ShadCN UI        | Components (modals, buttons, dropdowns) |
+| next-themes      | Dark/light mode toggle |
+
+---
+
+## 📦 Installation
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/yourusername/bookmark-app.git
+cd bookmark-app
+npm install
+````
+
+---
+
+## 🧪 Setup Environment Variables
+
+Create `.env.local` and add:
+
+```env
+NEXT_PUBLIC_FIREBASE_API_KEY
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
+NEXT_PUBLIC_FIREBASE_PROJECT_ID
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID
+NEXT_PUBLIC_FIREBASE_APP_ID
+NEXT_PUBLIC_FIREBASE_MEASUREMENT
+JWT_SECRET
+MONGODB_URI=mongodb://localhost:27017/test
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🧠 API Endpoints
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### ➕ Save Bookmark
 
-## Learn More
+`POST /api/bookmark/fetch`
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* Requires `Authorization: Bearer <token>`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 📥 Fetch Bookmarks
 
-## Deploy on Vercel
+`GET /api/bookmark/fetchAll` — returns all bookmarks of the user
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### ❌ Delete Bookmark
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+`DELETE /api/bookmark/fetchDelete/[id]`
+
+---
+
+## 💡 Future Ideas
+
+* ✅ Bookmark Tags & Categories
+* 🗂️ Folder-like organization
+* 🔍 Search Bookmarks
+* 🔐 Google Auth / Firebase UI
+
+---
+
+## 📸 Screenshots
+
+<img src="public/image.png" width="100%" />
+<img src="public/image2.png" width="100%" />
+<img src="public/image3.png" width="100%" />
+
+---
+
+## 🧑‍💻 Author
+
+Made by [Navneet Shahi](https://github.com/navneetshahi14)
+
+```
